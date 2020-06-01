@@ -1,14 +1,14 @@
 ﻿using DAL;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
 
 namespace Repository
 {
-    public class CustomerRepository : Repository<Customer>,ICustomerRepository
+    public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
         private ShoppingModel dataContext;
 
