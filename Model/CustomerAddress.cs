@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class CustomerAddress
+    public class CustomerAddress
     {
         [Required]
         public int CustomerAddressID { get; set; }

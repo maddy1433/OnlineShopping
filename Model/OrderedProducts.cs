@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class OrderedProducts
+    public class OrderedProducts
     {
         [Required]
         public int OrderedProductsID { get; set; }
