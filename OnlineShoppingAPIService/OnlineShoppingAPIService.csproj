@@ -222,7 +222,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -261,6 +260,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{535326c5-c10f-4dc4-86cc-d3021f16e7cc}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DepenencyResolver\DepenencyResolver.csproj">
+      <Project>{9b5fa8fe-ba94-4aa9-8f65-7e2ce6fc8302}</Project>
+      <Name>DepenencyResolver</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{104cbcb2-2b1b-4bc1-90a3-bfc5e1a38b53}</Project>

@@ -1,12 +1,11 @@
 ﻿
 #region " Namespaces "
 
+using DAL.RepositoryImplementations;
 using Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Repository;
+using Repository.RepositoryContracts;
+
 
 #endregion
 
@@ -17,30 +16,25 @@ namespace DAL
     /// </summary>
     public class UnitOfWork:IUnitOfWork
     {
-        private readonly IDatabaseFactory databaseFactory;
-        private ShoppingModel dataContext;
+        private readonly ShoppingModel _dataContext;
 
-        public UnitOfWork(IDatabaseFactory databaseFactory)
+        public ICustomerRepository Customer { get; private set; }
+        public IOrderRepository Order { get; private set; }
+        public IProductRepository Product { get; private set; }
+
+        public UnitOfWork(ShoppingModel dataContext)
         {
-            this.databaseFactory = databaseFactory;
+            _dataContext = dataContext;
+            Customer = new CustomerRepository(_dataContext);
+            Product = new ProductRepository(_dataContext);
+            Order = new OrderRepository(_dataContext);
         }
-
-        protected ShoppingModel DataContext
+       
+        public int Commit()
         {
-            get { return dataContext ?? (dataContext = databaseFactory.Get()); }
-        }
-
-        public void Commit()
-        {
-            //Committing code implementation todo
-            //I will try to get some generic code instead of calling context.Save changes here only
-            //Lets not add the Context class responsibility here. Lets think on this and implement.
-            //dataContext.SaveChanges();
+           return _dataContext.SaveChanges();
         }
     }
 
-    public interface IUnitOfWork
-    {
-        void Commit();
-    }
+   
 }

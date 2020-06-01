@@ -1,13 +1,12 @@
 ﻿
 #region " Namespaces "
-using System;
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAL;
 using Model;
 using Repository;
+using Repository.RepositoryContracts;
+
 #endregion
 
 namespace BAL
@@ -20,15 +19,13 @@ namespace BAL
 
         IUnitOfWork unitOfWork;
         IProductRepository _productsRepository;
-
         public ProductBAL(
-            IUnitOfWork unitOfWork,
-            IProductRepository productsRepository)
+            IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
-            this._productsRepository = productsRepository;
+            _productsRepository = unitOfWork.Product;
         }
-
+        
         public List<Product> GetProductByCategoryID(int id)
         {
             List<Product> products;
