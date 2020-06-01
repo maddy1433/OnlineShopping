@@ -18,6 +18,7 @@ namespace OnlineShoppingAPIService
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
+                //defaults: new { controller = "Product", action = "GetProductByCategoryID", id = RouteParameter.Optional }
             );
         }
     }
