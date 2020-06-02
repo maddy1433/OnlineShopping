@@ -23,23 +23,28 @@ namespace OnlineShoppingAPIService.Controllers
 
         ICustomerBAL _customerBAL;
         IUnitOfWork _unitOfWork;
+
+        IBALContract bALContracts;
         public CustomerController()
         {
             
             _unitOfWork = new DependencyResolver().CreateUoWInstance();
-            _customerBAL = new CustomerBAL(_unitOfWork);
+            //_customerBAL = new CustomerBAL(_unitOfWork);
+            bALContracts = new BALContract(_unitOfWork);
         }
 
         // GET: api/Customer
         public IEnumerable<string> Get()
         {
+            
             return new string[] { "value1", "value2" };
         }
 
         // GET: api/Customer/5
-        public string Get(int id)
+        public Customer Get(int id)
         {
-            return "value";
+            return bALContracts.customerBAL.GetCustomerDetailsByID(1);
+            //return "value";
         }
 
         // POST: api/Customer

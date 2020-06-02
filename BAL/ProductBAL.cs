@@ -6,6 +6,9 @@ using System.Linq;
 using Model;
 using Repository;
 using Repository.RepositoryContracts;
+using System.Data;
+using System.Data.Entity;
+
 
 #endregion
 
@@ -28,7 +31,7 @@ namespace BAL
         
         public List<Product> GetProductByCategoryID(int id)
         {
-            List<Product> products;
+            List<Product> products = new List<Product>();
             products = _productsRepository.GetProductByCategoryId(id); //GetMany(x => x.CategoryId == id).ToList();
             return products;
         }

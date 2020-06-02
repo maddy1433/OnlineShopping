@@ -30,8 +30,8 @@ namespace DAL.RepositoryImplementations
 
         public List<Product> GetProductByCategoryId(int id)
         {
-            return Context.Products.Where(x => x.CategoryId == id)
-                                     .ToList<Product>();
+            var products = Context.Products.Where(x => x.CategoryId == id).ToList();
+            return products; 
 
             
         }

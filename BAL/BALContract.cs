@@ -19,7 +19,7 @@ namespace BAL
 
         private  IUnitOfWork _unitOfWork;
 
-        public BALContract(UnitOfWork unitOfWork)
+        public BALContract(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;//Create object and should pass ie:Dependency resolver
             productBAL = new ProductBAL(_unitOfWork);
