@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BALContract.cs" />
+    <Compile Include="BALContracts\ICustomerBAL.cs" />
+    <Compile Include="BALContracts\IOrderBAL.cs" />
+    <Compile Include="CustomerBAL.cs" />
+    <Compile Include="BALContracts\IBALContract.cs" />
+    <Compile Include="OrderBAL.cs" />
     <Compile Include="ProductBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

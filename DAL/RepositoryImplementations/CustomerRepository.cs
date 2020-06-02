@@ -3,6 +3,9 @@
 using Model;
 using Repository.RepositoryContracts;
 using System;
+using System.Data.Entity;
+using System.Data;
+using System.Linq;
 
 #endregion
 
@@ -22,9 +25,9 @@ namespace DAL.RepositoryImplementations
             get { return _context as ShoppingModel; }
         }
 
-        public Customer GetCustomerById(int id)
+        public Customer GetCustomerDetailsById(int id)
         {
-            throw new NotImplementedException();
+            return _context.customers.SingleOrDefault(c => c.CustomerID == id); 
         }
     }
 }

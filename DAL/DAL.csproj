@@ -34,9 +34,6 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Repository">
-      <HintPath>..\Repository\bin\Debug\Repository.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,6 +55,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{104cbcb2-2b1b-4bc1-90a3-bfc5e1a38b53}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{aef484d9-9445-4a76-9973-a7834d5a90ac}</Project>
+      <Name>Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
