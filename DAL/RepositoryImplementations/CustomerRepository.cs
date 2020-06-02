@@ -27,7 +27,7 @@ namespace DAL.RepositoryImplementations
 
         public Customer GetCustomerDetailsById(int id)
         {
-            return _context.customers.SingleOrDefault(c => c.CustomerID == id); 
+            return _context.Customers.SingleOrDefault(c => c.CustomerID == id); 
         }
     }
 }

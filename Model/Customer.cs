@@ -20,26 +20,27 @@ namespace Model
         [Key]
         public int CustomerID { get; set; }
 
+        //[Required]
+        //[ForeignKey("CustomerAddress")]
+        //public int CustomerAddressID { get; set; }
+
         [Required]
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
         public string Phone { get; set; }
-        
+
         [Required]
         public string Email { get; set; }
 
-        [Required]
-        [Display(Name ="Main Address")]
-        public CustomerAddress DefaultAddress { get; set; }
+        //[Required]
+        //[Display(Name ="Main Address")]
+        //public CustomerAddress DefaultAddress { get; set; }
 
-        [ForeignKey("CustomerAddress")]
-        public int CustomerAddressID { get; set; }
+        //public virtual ICollection<CustomerAddress> ShippingAddress { get; set; }
 
-        public virtual ICollection<CustomerAddress> ShippingAddress { get; set; }
-
-        public virtual ICollection<Order> Orders { get; set; }
+        //public virtual ICollection<Order> Orders { get; set; }
     }
 
     

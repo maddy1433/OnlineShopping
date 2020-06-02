@@ -18,7 +18,7 @@ namespace Model
     {
         public int CategoryId { get; set; }
 
-        public int CategoryName { get; set; }
+        public string CategoryName { get; set; }
 
         public ICollection<Product> Products { get; set; }
 

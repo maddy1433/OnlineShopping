@@ -25,7 +25,7 @@ namespace Model
 
         [Required]
         public int Quantity { get; set; }
-
+        
         /*Based on the productID the info is available in this object*/
         public Product Product { get; set; }
     }

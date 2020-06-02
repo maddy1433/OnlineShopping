@@ -22,13 +22,13 @@ namespace Model
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
-        public DbSet<Customer> customers { get; set; }
-        public DbSet<CustomerAddress> customerAddresses { get; set; }
-        public DbSet<Category> categories { get; set; }
-        public DbSet<Product> products { get; set; }
-        public DbSet<ProductDetail> productDetails { get; set; }
-        public DbSet<Order> orders { get; set; }
-        public DbSet<OrderedProducts> orderedProducts { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerAddress> CustomerAddresses { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductDetail> ProductDetails { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderedProducts> OrderedProducts { get; set; }
     }
 
     //public class MyEntity

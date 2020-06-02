@@ -58,6 +58,14 @@
     <Compile Include="Category.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerAddress.cs" />
+    <Compile Include="Migrations\202006012016129_Initial.cs" />
+    <Compile Include="Migrations\202006012016129_Initial.Designer.cs">
+      <DependentUpon>202006012016129_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006012125333_Initial1.cs" />
+    <Compile Include="Migrations\202006012125333_Initial1.Designer.cs">
+      <DependentUpon>202006012125333_Initial1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderedProducts.cs" />
@@ -67,11 +75,24 @@
     <Compile Include="ShoppingModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202006012016129_Initial.resx">
+      <DependentUpon>202006012016129_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006012125333_Initial1.resx">
+      <DependentUpon>202006012125333_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Model;
 using Repository.RepositoryContracts;
+using System.Linq;
 #endregion
 
 namespace DAL.RepositoryImplementations
@@ -29,7 +30,10 @@ namespace DAL.RepositoryImplementations
 
         public List<Product> GetProductByCategoryId(int id)
         {
-            throw new NotImplementedException();
+            return Context.Products.Where(x => x.CategoryId == id)
+                                     .ToList<Product>();
+
+            
         }
     }
 

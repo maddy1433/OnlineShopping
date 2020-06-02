@@ -29,7 +29,7 @@ namespace BAL
         public List<Product> GetProductByCategoryID(int id)
         {
             List<Product> products;
-            products = _productsRepository.GetMany(x => x.CategoryId == id).ToList();
+            products = _productsRepository.GetProductByCategoryId(id); //GetMany(x => x.CategoryId == id).ToList();
             return products;
         }
     }

@@ -20,19 +20,26 @@ namespace Model
     public class Product
     {
         [Key]
+        [Required]
         public int ProductId { get; set; }
 
+        [Required]
         public string ProductName { get; set; }
 
+        [Required]
         public string ProductType { get; set; }
 
+        [Required]
         public bool Availability { get; set; }
 
+        [Required]
         public string ImagePath { get; set; }
 
         [ForeignKey("Category")]
+        [Required]
         public int CategoryId { get; set; }
 
+        [Required]
         public Category Category { get; set; }
 
         public virtual ICollection<ProductDetail> ProductDetails { get; set; }
