@@ -35,13 +35,13 @@ namespace Model
         [Required]
         public string ImagePath { get; set; }
 
-        [ForeignKey("Category")]
+        //[ForeignKey("Category")]
         [Required]
         public int CategoryId { get; set; }
 
-        [Required]
-        public Category Category { get; set; }
+        //[Required]
+        //public Category Category { get; set; }
 
-        public virtual ICollection<ProductDetail> ProductDetails { get; set; }
+        //public virtual ICollection<ProductDetail> ProductDetails { get; set; }
     }
 }

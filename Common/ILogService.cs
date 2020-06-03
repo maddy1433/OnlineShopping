@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace Common
 {
     #region We can implement the common code like logging, exception handling in this project 
 
-    public class Class1
+    public interface ILogService
     {
-
+        ILog Logger();
     }
 
     #endregion

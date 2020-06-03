@@ -1,7 +1,10 @@
-﻿using System;
+﻿
+using Common.ExceptionManagerApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 
 namespace OnlineShoppingAPIService
 {
@@ -9,6 +12,9 @@ namespace OnlineShoppingAPIService
     {
         public static void Register(HttpConfiguration config)
         {
+            //.Services.Add(typeof(IExceptionLogger), new ExceptionManagerApi());
+            config.Services.Add(typeof(IExceptionLogger), new ExceptionManagerApi());
+
             // Web API configuration and services
 
             // Web API routes

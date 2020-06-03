@@ -19,11 +19,7 @@ namespace Model
         [Required]
         [Key]
         public int CustomerID { get; set; }
-
-        //[Required]
-        //[ForeignKey("CustomerAddress")]
-        //public int CustomerAddressID { get; set; }
-
+        
         [Required]
         public string FirstName { get; set; }
 
@@ -34,13 +30,6 @@ namespace Model
         [Required]
         public string Email { get; set; }
 
-        //[Required]
-        //[Display(Name ="Main Address")]
-        //public CustomerAddress DefaultAddress { get; set; }
-
-        //public virtual ICollection<CustomerAddress> ShippingAddress { get; set; }
-
-        //public virtual ICollection<Order> Orders { get; set; }
     }
 
     

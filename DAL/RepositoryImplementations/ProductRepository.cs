@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Model;
 using Repository.RepositoryContracts;
 using System.Linq;
+using System.Net;
 #endregion
 
 namespace DAL.RepositoryImplementations
@@ -27,14 +28,12 @@ namespace DAL.RepositoryImplementations
             get { return _context as ShoppingModel; }
         }
 
-
-        public List<Product> GetProductByCategoryId(int id)
+        public IQueryable<Product> GetAllProducts()
         {
-            var products = Context.Products.Where(x => x.CategoryId == id).ToList();
-            return products; 
-
-            
+            var productlist = Context.Products.AsQueryable<Product>();
+            return productlist;
         }
+
     }
 
    

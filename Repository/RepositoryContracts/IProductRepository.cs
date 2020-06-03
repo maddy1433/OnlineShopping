@@ -1,11 +1,11 @@
 ﻿using Model;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace Repository.RepositoryContracts
 {
     public interface IProductRepository : IRepository<Product>
     {
-        List<Product> GetProductByCategoryId(int id);
+        IQueryable<Product> GetAllProducts();
     }
 }

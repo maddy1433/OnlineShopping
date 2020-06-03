@@ -43,7 +43,8 @@ namespace OnlineShoppingAPIService.Controllers
         // GET: api/Customer/5
         public Customer Get(int id)
         {
-            return bALContracts.customerBAL.GetCustomerDetailsByID(1);
+            var customer = bALContracts.customerBAL.GetCustomerDetailsByID(id);
+            return customer;
             //return "value";
         }
 
