@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Products</h2>
+
+<form action="/Product/Category" method="get" id="category" class="option">
+    <span>Category</span>
+    <select id="catName" class="form-control" name="catName" onchange="$('#category').submit()">
+        <option>-- Select --</option>
+        <option value="">All</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Groceries">Groceries</option>
+        <option value="Electronic Items">Electronic Items</option>
+    </select>
+</form>
+
+@if (ViewBag.Products.Count == 0)
+{
+    <br />
+    <div id="EmptyDataMsg" class="alert alert-info">
+        <strong>Welcome!</strong> No products available.
+    </div>
+}
+else
+{
+    <div class="list-view">
+        @foreach (var item in ViewBag.Products)
+        {
+            <img class="img-thumbnail" src="@Url.Content(@item.ImagePath)" alt="Sample Photo" />            
+            <div class="list-item">
+                @if (item.CategoryId == 1)
+                {
+                    <span class="p-cart">Fashion:</span>
+                }
+                else if (item.CategoryId == 2)
+                {
+                    <span class="p-cart">Groceries:</span>
+                }
+                else
+                {
+                    <span class="p-cart">Electronic Items:</span>
+                }
+
+                <span class="p-brand">@item.ProductType</span>
+                <span class="p-name">@item.ProductName</span>
+
+                <div class="add-to-cart">
+                    @Html.ActionLink("add to cart", "AddToCart", "Product", new { id = item.ProductId }, null)
+                    <span class="p-price">@String.Format("{0:c}", "Rs. 300")</span>
+                </div>
+                @*<span class="p-unit">
+                    @item.Availability
+                    @if (item.Availability)
+                    {
+
+                        <text>units</text>
+                    }
+                    else
+                    {
+                        <text>unit</text>
+                    }
+                </span>*@
+            </div>
+        }
+    </div>
+}
+
+
+
