@@ -28,5 +28,7 @@ namespace Model
         
         /*On clicking OrderID, it lazy loads the detail of the particular order*/
         public virtual ICollection<OrderedProducts> OrderedProducts { get; set; }
+
+        public int CustomerId { get; set; }
     }
 }

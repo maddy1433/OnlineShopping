@@ -21,7 +21,7 @@ namespace OnlineShoppingAPIService.Controllers
          * bALContracts.customerBAL = new CustomerBAL(_unitOfWork); //constructor invoking object
          */
 
-        ICustomerBAL _customerBAL;
+        //ICustomerBAL _customerBAL;
         IUnitOfWork _unitOfWork;
 
         IBALContract bALContracts;
@@ -34,33 +34,35 @@ namespace OnlineShoppingAPIService.Controllers
         }
 
         // GET: api/Customer
-        public IEnumerable<string> Get()
+        public IEnumerable<Customer> Get()
         {
-            
-            return new string[] { "value1", "value2" };
+            return bALContracts.customerBAL.GetAllCustomers().AsEnumerable();
         }
 
         // GET: api/Customer/5
         public Customer Get(int id)
         {
-            var customer = bALContracts.customerBAL.GetCustomerDetailsByID(id);
+            var customer = bALContracts.customerBAL.GetCustomersByID(id);
             return customer;
             //return "value";
         }
 
         // POST: api/Customer
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Customer customer)
         {
+            bALContracts.customerBAL.SaveOrUpdateCustomer(customer.CustomerID,customer);
         }
 
         // PUT: api/Customer/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Customer customer)
         {
+            bALContracts.customerBAL.SaveOrUpdateCustomer(id,customer);
         }
 
         // DELETE: api/Customer/5
         public void Delete(int id)
         {
+            bALContracts.customerBAL.DeleteCustomer(id);
         }
     }
 }

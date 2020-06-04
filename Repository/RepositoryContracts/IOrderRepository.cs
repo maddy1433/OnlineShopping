@@ -6,6 +6,9 @@ namespace Repository.RepositoryContracts
 {
     public interface IOrderRepository : IRepository<Order>
     {
-        List<Order> GetOrders();
+        List<Order> GetOrderedProductsBasedonOrderId(int orderId);
+        int GetOrderId(int customerId);
+        void SaveProducts(int id,List<OrderedProducts> product);
+
     }
 }

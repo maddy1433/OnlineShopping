@@ -28,5 +28,7 @@ namespace Model
         
         /*Based on the productID the info is available in this object*/
         public Product Product { get; set; }
+
+        public int OrderId { get; set; }
     }
 }

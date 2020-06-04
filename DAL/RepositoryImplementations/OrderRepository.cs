@@ -4,6 +4,8 @@ using Model;
 using Repository.RepositoryContracts;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 #endregion
 
@@ -24,9 +26,28 @@ namespace DAL.RepositoryImplementations
             get { return _context as ShoppingModel; }
         }
 
-        public List<Order> GetOrders()
+       public int GetOrderId(int customerId)
         {
-            throw new NotImplementedException();
+            int id = (from x in _context.Orders
+                     where (x.CustomerId == customerId)
+                     orderby x.CustomerId descending
+                     select x.CustomerId).FirstOrDefault();
+            return id;
+        }
+
+        public List<Order> GetOrderedProductsBasedonOrderId(int orderId)
+        {
+            return _context.Orders.Include(x => x.OrderedProducts).Where(o => o.OrderID == orderId).ToList();
+        }
+
+        public void SaveProducts(int id,List<OrderedProducts> products)
+        {
+            foreach(var product in products)
+            {
+                product.OrderId = id;
+                _context.OrderedProducts.Add(product);
+            }
+            _context.SaveChanges();
         }
     }
 
