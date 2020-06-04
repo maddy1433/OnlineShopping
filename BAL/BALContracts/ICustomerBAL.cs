@@ -9,6 +9,9 @@ namespace BAL.BALContracts
 {
     public interface ICustomerBAL
     {
-        Customer GetCustomerDetailsByID(int id);
+        Customer GetCustomersByID(int id);
+        IQueryable<Customer> GetAllCustomers();
+        int SaveOrUpdateCustomer(int id,Customer customer);
+        bool DeleteCustomer(int id);
     }
 }

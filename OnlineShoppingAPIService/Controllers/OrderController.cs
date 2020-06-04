@@ -1,6 +1,8 @@
 ﻿using BAL;
 using BAL.BALContracts;
 using DepenencyResolver;
+using Model;
+using Model.ViewModel;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -27,15 +29,23 @@ namespace OnlineShoppingAPIService.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Order/5
-        public string Get(int id)
+        //getbycustomerId
+        public IHttpActionResult GetOrdersByCustomerId(int id)
+       // public List<Order> GetOrdersByCustomerId(int id)
         {
-            return "value";
+            return Ok(_orderBAL.GetOrdersByCustomerId(id).ToList());
+        }
+
+        // GET: api/Order/5
+        public List<Order> GetOrdersByOrderId(int id)
+        {
+            return _orderBAL.GetProductsForOrderId(id).ToList();
         }
 
         // POST: api/Order
-        public void Post([FromBody]string value)
+        public void Post([FromBody]BookOrder bookOrder)
         {
+            _orderBAL.BookNewOrder(bookOrder);
         }
 
         // PUT: api/Order/5
