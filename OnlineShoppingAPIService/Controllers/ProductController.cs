@@ -104,32 +104,34 @@ namespace OnlineShoppingAPIService.Controllers
         //POST api/product/
         public int PostProducts([FromBody]List<Product> products)
         {
-            
-            //var insertData = new Product();
-            //insertData.ProductName = "Jacket";
-            //insertData.ProductType = "Winter wear";
-            //insertData.ImagePath = "C:\\Images\\14.jpg";
-            //insertData.Availability = true;
-            //insertData.CategoryId = 1;
-
-            //Product insertData1 = new Product();
-            //insertData1.ProductName = "Trouse";
-            //insertData1.ProductType = "Formals";
-            //insertData1.ImagePath = "C:\\Images\\15.jpg";
-            //insertData1.Availability = true;
-            //insertData1.CategoryId = 1;
-
-            //List<Product> productsList = new List<Product>();
-            //productsList.Add(insertData);
-            //productsList.Add(insertData1);
-            return bALContracts.productBAL.SaveOrUpdateProduct(products);
+            int returnAffectedRows=0;
+            try
+            {
+                 returnAffectedRows = bALContracts.productBAL.SaveOrUpdateProduct(products);
+                return returnAffectedRows;
+            }
+            catch (Exception ex)
+            {
+                _logger.Info(returnAffectedRows, ex);
+                return 0;
+            }
         }
 
         [HttpDelete]
         //DELETE api/Product/DeleteProduct
         public bool DeleteProduct(int id)
         {
-           return bALContracts.productBAL.DeleteProduct(id);
+            bool isDeleted = false;
+            try
+            {
+                isDeleted = bALContracts.productBAL.DeleteProduct(id);
+                return isDeleted;
+            }
+            catch (Exception ex)
+            {
+                _logger.Info(isDeleted, ex);
+                return isDeleted;
+            }
 
         }
 
